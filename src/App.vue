@@ -15,7 +15,7 @@ import UserComponent from './components/UserComponent.vue';
   </header>
 
   <main>
-    <UserComponent username="shanaya" email="shana@poa.com" dob="10/01/2004" />
+    <UserComponent username="aayush" email="aayushp@poa.com" dob="10/01/2004" />
   </main>
 </template>
 
