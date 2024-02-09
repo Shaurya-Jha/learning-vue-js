@@ -1,24 +1,19 @@
 <script setup>
-import {ref, nextTick} from 'vue'
+import {ref} from 'vue'
 
-// const count = ref(0);
+const items = ref([
+  {
+    title:"Naruto"
+  },
+  {
+    title: "Death Note"
+  },
+  {
+    title: "Tokyo Ghoul"
+  }
+])
 
-// function increment(){
-//   count.value ++
-// }
-
-const obj = ref({
-  nested: {count: 0},
-  arr: ['foo','bar']
-})
-
-async function mutateDeeply(){
-  // these will work as expected
-  obj.value.nested.count++
-
-  obj.value.arr.push("baz")
-  await nextTick()
-}
+// const awesome = ref(false)
 
 </script>
 
@@ -33,17 +28,16 @@ async function mutateDeeply(){
   </header>
 
   <main>
-    <!-- <TheWelcome /> -->
-    <div>
-      <h2>{{ obj.arr }}</h2>
-      <h2>The count is : {{ obj.nested.count }}</h2>
-      <button @click="mutateDeeply">{{ obj.nested.count }}</button>
-    </div>
+    
+    <li v-for="(item,index) in items" :key="item.id">
+      <p>{{ index  + ' ' + item.title }}</p>
+    </li>
+      
   </main>
 </template>
 
 <style scoped>
-header {
+header {  
   line-height: 1.5;
 }
 
