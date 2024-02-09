@@ -1,6 +1,25 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import {ref, nextTick} from 'vue'
+
+// const count = ref(0);
+
+// function increment(){
+//   count.value ++
+// }
+
+const obj = ref({
+  nested: {count: 0},
+  arr: ['foo','bar']
+})
+
+async function mutateDeeply(){
+  // these will work as expected
+  obj.value.nested.count++
+
+  obj.value.arr.push("baz")
+  await nextTick()
+}
+
 </script>
 
 <template>
@@ -8,12 +27,18 @@ import TheWelcome from './components/TheWelcome.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <!-- <HelloWorld msg="You did it!" /> -->
+      <h2>Counter app</h2>
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <!-- <TheWelcome /> -->
+    <div>
+      <h2>{{ obj.arr }}</h2>
+      <h2>The count is : {{ obj.nested.count }}</h2>
+      <button @click="mutateDeeply">{{ obj.nested.count }}</button>
+    </div>
   </main>
 </template>
 
