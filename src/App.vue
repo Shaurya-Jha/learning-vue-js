@@ -1,25 +1,12 @@
 <script setup>
-import {ref} from 'vue'
+import UserComponent from './components/UserComponent.vue';
 
-const items = ref([
-  {
-    title:"Naruto"
-  },
-  {
-    title: "Death Note"
-  },
-  {
-    title: "Tokyo Ghoul"
-  }
-])
-
-// const awesome = ref(false)
 
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <!-- <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" /> -->
 
     <div class="wrapper">
       <!-- <HelloWorld msg="You did it!" /> -->
@@ -28,11 +15,7 @@ const items = ref([
   </header>
 
   <main>
-    
-    <li v-for="(item,index) in items" :key="item.id">
-      <p>{{ index  + ' ' + item.title }}</p>
-    </li>
-      
+    <UserComponent username="shanaya" email="shana@poa.com" dob="10/01/2004" />
   </main>
 </template>
 
